@@ -13,7 +13,7 @@
 
         async function logout() {
             try {
-                const response = await fetch('http://localhost:3000/logout', {
+                const response = await fetch('https://pulpoline.onrender.com//logout', {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -35,7 +35,7 @@
             const token = localStorage.getItem('token');
 
             try {
-                const response = await fetch('http://localhost:3000/list-tokens', {
+                const response = await fetch('https://pulpoline.onrender.com//list-tokens', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -66,7 +66,7 @@
             const token = localStorage.getItem('token');
 
             try {
-                const response = await fetch('http://localhost:3000/create-token-hedera', {
+                const response = await fetch('https://pulpoline.onrender.com//create-token-hedera', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
