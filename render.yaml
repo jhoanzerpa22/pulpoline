@@ -1,0 +1,9 @@
+services:
+  - type: web
+    runtime: docker
+    dockerfilePath: dockerFile
+    name: pulpoline
+    buildCommand: ""
+    startCommand: "php -S 0.0.0.0:10000 -t public"
+    autoDeploy: true
+    region: oregon
