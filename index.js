@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const hedera = require('@hashgraph/sdk');
 const bcrypt = require('bcrypt');
 const sqlite3 = require('sqlite3').verbose();
+const cors = require('cors');
 
 const { Client, AccountId, PrivateKey, TokenType, TokenCreateTransaction, AccountBalanceQuery, TokenInfoQuery } = require('@hashgraph/sdk');
 
@@ -16,7 +17,7 @@ const accountId = AccountId.fromString(process.env.OPERATOR_ID);
 const accountKey = PrivateKey.fromStringECDSA(process.env.OPERATOR_KEY);
 const client = Client.forTestnet().setOperator(accountId,accountKey);
 
-app.use(express.json());
+app.use(express.json({limit: '1550mb'})).use(cors());
 
 db.run(`
     CREATE TABLE IF NOT EXISTS users (

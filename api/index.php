@@ -18,7 +18,7 @@
             };
 
             try {
-                const response = await fetch('https://pulpoline.onrender.com//login', {
+                const response = await fetch('https://pulpoline.onrender.com/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
