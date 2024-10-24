@@ -40,6 +40,21 @@ function authenticateToken(req, res, next) {
     });
 }
 
+app.get("/status", async(_req, res, _next) => {
+  try {
+      const healthcheck = {
+          uptime: process.uptime(),
+          message: "OK",
+          timestamp: Date.now(),
+      };
+      res.send(healthcheck);
+  } catch (error) {
+      console.log(error);
+      res.status(503).send(error);
+  }
+});
+
+
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
   
